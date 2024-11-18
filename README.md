@@ -6,7 +6,6 @@
     <img src="pawtential.png" alt="contributors"></a>
 </p>
 
-![bookworm-light](https://demo.gethugothemes.com/thumbnails/bookworm-light.png)
 
 This is going to be the home page of a pet-adoption charity organization which compiles information of stray pets and posts them here to look for potential owners.
 Advocates adoption > purchase to minimize the effect of inhuamne treatment of animals in breeding instutions.
