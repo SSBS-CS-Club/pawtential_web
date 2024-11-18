@@ -2,7 +2,7 @@
 <p align=center>Pawtential is a charity club focused on stray adoption and environment protection</p>
 
 <p align=center>
-  <a href="https://github.com/themefisher/bookworm-light-astro/graphs/contributors">
+  <a>
     <img src="pawtential.png" alt="contributors"></a>
 </p>
 
