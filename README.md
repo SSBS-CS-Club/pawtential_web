@@ -33,8 +33,8 @@ Advocates adoption > purchase to minimize the effect of inhuamne treatment of an
 <!-- licence -->
 ## 📄License
 
-Copyright (c) 2023 - Present, Designed & Developed by [Themefisher](https://themefisher.com)
+Copyright (c) 2024 - Present, Designed & Developed by George Shi
 
-**Code License:** Released under the [MIT](https://github.com/themefisher/bookworm-light-astro/blob/main/LICENSE) license.
+**Code License:** Released under the [MIT] license.
 
 **Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
