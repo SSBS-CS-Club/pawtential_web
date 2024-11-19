@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Bookworm Light Astro | Blog Template",
-    "base_url": "https://bookworm-light-astro.vercel.app",
+    "title": "Pawtential Club : Finding a home for pets",
+    "base_url": "",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
@@ -12,24 +12,24 @@
   },
 
   "settings": {
-    "pagination": 5,
-    "summary_length": 100
+    "pagination": 6,
+    "summary_length": 150
   },
 
   "metadata": {
-    "meta_author": "Themefisher",
-    "meta_image": "/images/og-image.png",
-    "meta_description": "Bookworm Light Astro Blog Template"
+    "meta_author": "CS Club at SSBS",
+    "meta_image": "",
+    "meta_description": "OI|AI|HACK"
   },
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Copyright © 2023 a theme by [Themefisher](https://themefisher.com)"
+    "copyright": "Copyright © 2023 a theme by [George Shi]"
   },
 
   "contactinfo": {
-    "address": "355 S Grand Ave <br/> Los Angeles, CA 90071",
-    "email": "info@bookworm.org",
-    "phone": "+800 567 1234"
+    "address": "2588 JinDU Rd. MingHang Dist. Shanghai China",
+    "email": "GeorgeShiThy@outlook.com",
+    "phone": "+86 13621870431"
   }
 }
