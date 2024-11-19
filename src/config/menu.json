@@ -18,8 +18,8 @@
       "hasChildren": true,
       "children": [
         {
-          "name": "Authors",
-          "url": "/authors"
+          "name": "Adopt",
+          "url": "/adopt"
         },
         {
           "name": "Categories",
@@ -28,10 +28,6 @@
         {
           "name": "Tags",
           "url": "/tags"
-        },
-        {
-          "name": "Elements",
-          "url": "/elements"
         },
         {
           "name": "Privacy Policy",
