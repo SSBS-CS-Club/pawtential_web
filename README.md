@@ -30,6 +30,12 @@ Advocates adoption > purchase to minimize the effect of inhuamne treatment of an
 - 📱 Fully Responsive on Desktops, Tablets, and Smartphones
 - 🔍 SEO Friendly
 
+## How to use and deploy:
+0: Make sure that you have pnpm and node.js installed in the RIGHT way!
+1: Open terminal and type 'pnpm install dependencies'
+2: Also in the terminal: 'pnpm dev'
+3: View the webpage at port localhost:1234
+
 <!-- licence -->
 ## 📄License
 
