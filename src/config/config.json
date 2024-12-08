@@ -24,12 +24,12 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Copyright © 2023 a theme by [George Shi]"
+    "copyright": "Copyright © 2023 a theme by []"
   },
 
   "contactinfo": {
     "address": "2588 JinDU Rd. MingHang Dist. Shanghai China",
-    "email": "GeorgeShiThy@outlook.com",
+    "email": "",
     "phone": "+86 13621870431"
   }
 }

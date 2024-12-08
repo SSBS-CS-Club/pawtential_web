@@ -39,7 +39,7 @@ Advocates adoption > purchase to minimize the effect of inhuamne treatment of an
 <!-- licence -->
 ## 📄License
 
-Copyright (c) 2024 - Present, Designed & Developed by George Shi
+Copyright (c) 2024 - Present, Designed & Developed by Claire Zhao, George Shi
 
 **Code License:** Released under the [MIT] license.
 

@@ -5,35 +5,12 @@
       "url": "/"
     },
     {
-      "name": "About",
+      "name": "About Us",
       "url": "/about"
     },
     {
-      "name": "Contact",
-      "url": "/contact"
-    },
-    {
-      "name": "Pages",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Adopt",
-          "url": "/adopt"
-        },
-        {
-          "name": "Categories",
-          "url": "/categories"
-        },
-        {
-          "name": "Tags",
-          "url": "/tags"
-        },
-        {
-          "name": "Privacy Policy",
-          "url": "/privacy-policy"
-        }
-      ]
+      "name": "Adopt",
+      "url": "/adopt"
     }
   ],
   "footer": [
