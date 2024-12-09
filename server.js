@@ -48,7 +48,6 @@ pool.getConnection((err, connection) => {
 // 处理添加动物的 API 请求
 app.post('/api/add-animal', (req, res) => {
   console.log("收到请求:", req.body);  // 打印请求数据
-  console.log("收到请求:", req.body);  // 打印请求数据
 
   // 在验证之前打印请求体内容
   console.log("请求体内容：", req.body);  // 这里添加了请求体打印
@@ -71,7 +70,7 @@ app.post('/api/add-animal', (req, res) => {
       return res.status(500).json({ message: '添加动物失败，请稍后再试' });
     }
     console.log("插入成功，动物 ID:", result.insertId);  // 打印成功插入的 ID
-    res.status(200).json({ message: '动物成功添加', animalId: result.insertId });
+    res.status(200).json({ message: 'Successfully Added', animalId: result.insertId });
   });
 });
 
