@@ -1,17 +1,33 @@
---- 
-// 1. 导入 React 组件 AnimalCard 和 animals 数据
+---
 import Base from '@/layouts/Base.astro';
 import AnimalCard from '../components/AnimalCard.astro';
-import animals from '../data/animals.json';
+import mysql from 'mysql2/promise';
+
+// 连接 MySQL 数据库并获取动物数据
+const connection = await mysql.createConnection({
+  host: 'localhost',
+  user: 'root',  // 你的数据库用户名
+  password: '123456',  // 你的数据库密码
+  database: 'pet_adoption',  // 替换为你实际的数据库名称
+});
+
+// 查询所有动物数据
+const [rows] = await connection.execute('SELECT * FROM animals');
+
+// 关闭连接
+await connection.end();
+
+// 将动物数据传递给模板
 const pageTitle = "领养动物";
+const animals = rows;
 ---
 
-<Base >
+<Base>
     <title>{pageTitle}</title>
     <h1>可领养动物</h1>
     <button onclick="window.location.href='/add-animal'">添加一个动物</button> <!-- 跳转到添加动物页面 -->
     <div class="animal-cards-container">
-      <!-- 2. 遍历 animals.json 数据，渲染 AnimalCard 组件 -->
+      <!-- 遍历从数据库获取的动物数据，渲染 AnimalCard 组件 -->
       {animals.map((animal) => (
         <AnimalCard key={animal.id} animal={animal} />
       ))}
