@@ -1,0 +1,31 @@
+[
+    {
+      "id": 1,
+      "name": "Buddy",
+      "species": "Dog",
+      "age": 3,
+      "adoptionDate": "2024-12-01"
+    },
+    {
+      "id": 2,
+      "name": "Mittens",
+      "species": "Cat",
+      "age": 5,
+      "adoptionDate": "2024-11-15"
+    },
+    {
+      "id": 3,
+      "name": "Charlie",
+      "species": "Parrot",
+      "age": 2,
+      "adoptionDate": "2024-12-05"
+    },
+    {
+      "id": 4,
+      "name": "Goldie",
+      "species": "Fish",
+      "age": 1,
+      "adoptionDate": "2024-10-20"
+    }
+  ]
+  
