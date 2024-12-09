@@ -1,16 +1,13 @@
 --- 
 // 1. 导入 React 组件 AnimalCard 和 animals 数据
 import Base from '@/layouts/Base.astro';
-import AnimalCard from '../components/AnimalCard.jsx';
+import AnimalCard from '../components/AnimalCard.astro';
 import animals from '../data/animals.json';
 const pageTitle = "领养动物";
 ---
 
 <Base >
     <title>{pageTitle}</title>
-    <script>
-            alert('添加前');
-    </script>
     <h1>可领养动物</h1>
     <button onclick="window.location.href='/add-animal'">添加一个动物</button> <!-- 跳转到添加动物页面 -->
     <div class="animal-cards-container">

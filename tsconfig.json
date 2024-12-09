@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.astro", "src/components/AnimalCard.jsx"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.astro", "src/components/AnimalCard.astro"],
   "exclude": ["node_modules"]
 }
