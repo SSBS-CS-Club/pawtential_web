@@ -2,6 +2,11 @@
 import Base from '@/layouts/Base.astro';
 import AnimalCard from '../components/AnimalCard.astro';
 import mysql from 'mysql2/promise';
+import config from "@/config/config.json";
+import Pagination from "@/layouts/components/Pagination.astro";
+import Posts from "@/layouts/Posts.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
 
 // 连接 MySQL 数据库并获取动物数据
 const connection = await mysql.createConnection({
@@ -11,6 +16,10 @@ const connection = await mysql.createConnection({
   database: 'pet_adoption',  // 替换为你实际的数据库名称
 });
 
+const posts = await getSinglePage("posts");
+const sortedPosts = sortByDate(posts);
+const totalPages = Math.ceil(posts.length / config.settings.pagination);
+const currentPosts = sortedPosts.slice(0, config.settings.pagination);
 // 查询所有动物数据
 const [rows] = await connection.execute('SELECT * FROM animals');
 
@@ -32,4 +41,10 @@ const animals = rows;
         <AnimalCard key={animal.id} animal={animal} />
       ))}
     </div>
+    <section class="section">
+        <div class="container">
+          <Posts posts={currentPosts} className="mb-16" />
+          <Pagination currentPage={1} totalPages={totalPages} />
+        </div>
+      </section>
 </Base>
