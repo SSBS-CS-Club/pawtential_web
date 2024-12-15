@@ -5,7 +5,9 @@ import Pagination from "@/layouts/components/Pagination.astro";
 import Posts from "@/layouts/Posts.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
+import { getSession } from 'auth-astro/server';
 
+const session = await getSession(Astro.request);
 const posts = await getSinglePage("posts");
 const sortedPosts = sortByDate(posts);
 const totalPages = Math.ceil(posts.length / config.settings.pagination);
@@ -14,6 +16,13 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
 
 <Base>
   <section class="section">
+    {
+      session ? (
+        <p>Welcome {session.user?.name}</p>
+      ) : (
+        <p>Not logged in</p>
+      )
+    }
     <div class="container">
       <Posts posts={currentPosts} className="mb-16" />
       <Pagination currentPage={1} totalPages={totalPages} />
