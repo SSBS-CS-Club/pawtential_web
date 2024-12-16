@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>注册用户</title>
+  </head>
+  <body>
+    <h1>Create New User</h1>
+    <form id="createUser" enctype="multipart/form-data" method="post">
+        <!-- User id (Use E-mail)  -->
+        <label for="name">Your Email Here:</label>
+        <input type="email" id="email" name="email" required />
+        <div id="error-message-email" style="color: red"></div><br /><br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+        <div id="error-message-password" style="color: red"></div><br /><br />
+
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+
+    </script>
+  </body>
+</html>
