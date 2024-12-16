@@ -39,6 +39,46 @@ const pool = mysql.createPool({
   database: process.env.DB_NAME,
 });
 
+// Helper function to create .md files
+function createMarkdownFile(postData) {
+  const dirPath = path.join(__dirname, 'src', 'content', 'posts');
+  
+  // 确保目标目录存在
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+    console.log("目录不存在，已创建:", dirPath);
+  }
+
+  const filePath = path.join(dirPath, `${'post-'+ postData.id}.md`);
+
+  // 打印路径，确保路径正确
+  console.log("生成 Markdown 文件路径:", filePath);
+
+  const markdownContent = 
+  `---
+id: "${postData.id}"
+title: "${postData.title}"
+description: "${postData.description}"
+date: ${postData.date}
+image: "${postData.image}"
+tags: ${JSON.stringify(postData.tags)}
+draft: ${postData.draft}
+content: "${postData.content}"
+---
+
+${postData.content}`;
+
+  // 写入文件
+  fs.writeFile(filePath, markdownContent, (err) => {
+    if (err) {
+      console.error("文件写入失败:", err);
+    } else {
+      console.log("成功生成 Markdown 文件:", filePath);
+    }
+  });
+}
+
+// 处理添加动物的 API 请求
 app.post('/api/add-animal', upload.single('image'), (req, res) => {
   console.log("收到请求:", req.body);  // 打印请求数据
 
@@ -59,9 +99,27 @@ app.post('/api/add-animal', upload.single('image'), (req, res) => {
     }
 
     const animalId = result.insertId;  // 获取插入后的动物 ID
-
     // 生成新的文件名为 post_{id}.jpg
     const newImagePath = path.join('content', 'imgs', `post_${animalId}.jpg`);
+    const normalizedImagePath = '/' + newImagePath.replace(/\\/g, '/');  // 替换所有反斜杠为斜杠
+
+    // 创建动态内容来生成 Markdown
+    // 获取当前日期时间并格式化为 ISO 8601 格式
+    const currentDateTime = new Date().toISOString();  // 例如: "2024-04-21T05:00:00.000Z"
+
+    const postData = {
+      id: animalId,  // 使用插入后的 animalId
+      title: `Test Pet ${name}`,
+      description: `Details about ${name}`,
+      date: currentDateTime,  // 设置为当前日期时间
+      image: normalizedImagePath,
+      tags: [species, size],
+      draft: false,
+      content: description
+    };
+
+    // 创建 Markdown 文件
+    createMarkdownFile(postData);
 
     // 使用新的文件名重命名文件
     fs.rename(path.join(__dirname, 'content', 'imgs', tempImage), newImagePath, (err) => {
@@ -80,9 +138,6 @@ app.post('/api/add-animal', upload.single('image'), (req, res) => {
 
         console.log("插入成功，动物 ID:", animalId);
         res.status(200).json({ message: 'Successfully Added', animalId: animalId, pictureUrl: newImagePath });
-
-        // 插入成功后重定向到 /adopt 页面
-        /* res.redirect('/adopt'); */
       });
     });
   });
@@ -115,6 +170,7 @@ const updateMarkdownFile = (postData, fileName) => {
   
     console.log(`Markdown file created/updated at: ${filePath}`);
   };
+
 // 处理更新动物的 API 请求
 app.put('/api/update-animal/:id', (req, res) => {
   const animalId = req.params.id;
@@ -148,6 +204,7 @@ app.put('/api/update-animal/:id', (req, res) => {
     updateMarkdownFile(postData, `${name.toLowerCase().replace(/\s+/g, '-')}.md`);
 
     res.status(200).json({ message: 'Successfully Updated' });
+    res.redirect('/adopt');
   });
 });
 
